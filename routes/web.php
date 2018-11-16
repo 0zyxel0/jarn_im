@@ -34,8 +34,13 @@ Route::get('/requestItemList/{id}','RequestProductController@requestItemStore');
 Route::get('/viewReports','ReportsController@viewAvaiblableReports');
 Route::get('/viewReports/transactionsOfEmployeeArea','ReportsController@view_TransactionInventoryOfEmployee');
 Route::get('/viewReports/transactionsOfEmployeeArea/generatePersonReport','ReportsController@generatePersonTransactionReport');
-
+Route::get('/viewReports/totalInventory','ReportsController@view_TotalInventoryCost');
 Route::get('/viewReports/transactionsOfArea','ReportsController@view_TransactionInventoryOfArea');
+
+Route::get('/viewReports/inventoryUsage','ReportsController@generate_Inventory_UsageReport');
+Route::post('/viewReports/totalCostUsage','ReportsController@view_TotalUsageCost');
+
+
 
 Route::post('/viewReports/createTransactionAreaReport','ReportsController@post_TransactionInventoryOfArea');
 Route::post('/viewReports/createTransactionReport','ReportsController@post_TransactionInventoryOfEmployee');

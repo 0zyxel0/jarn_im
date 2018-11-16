@@ -10,7 +10,7 @@
                 "columnDefs":
                     [
                         {
-                            "targets": [],
+                            "targets": [0],
                             "visible": false,
                             "searchable": false
                         }
