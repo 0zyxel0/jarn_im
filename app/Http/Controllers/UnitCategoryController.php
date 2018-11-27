@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\UnitCategory;
+use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
 
 class UnitCategoryController extends Controller
@@ -46,7 +47,8 @@ class UnitCategoryController extends Controller
      */
     public function viewUnitList(UnitCategory $unitCategory)
     {
-        return view('content.category.view_unit_list');
+        $units = UnitCategory::all();
+        return view('content.category.view_unit_list',compact('units'));
     }
 
     /**
@@ -81,5 +83,17 @@ class UnitCategoryController extends Controller
     public function destroy(UnitCategory $unitCategory)
     {
         //
+    }
+
+    public function save(Request $request){
+        $unitData = new UnitCategory();
+        $unitData->unitid = Uuid::uuid();
+        $unitData->unit_type = $request->unit_name;
+        $unitData->createdBy = $request->username;
+        $unitData->updatedBy = $request->username;
+        $unitData->save();
+        $request->session()->flash('alert-success', 'Record was successful added!');
+        return redirect('/unitList');
+
     }
 }

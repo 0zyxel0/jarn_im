@@ -28,6 +28,10 @@ Route::get('/invoiceTypeList','InvoiceController@show_invoiceTypes');
 Route::get('/requestList','RequestProductController@show_requestList');
 Route::get('/invoiceList','InvoiceController@show');
 Route::get('/addNewProduct','InventoryController@add_inventoryProduct');
+Route::get('/inventoryList/editProduct/{prodid}','InventoryController@edit_inventoryProduct');
+
+
+
 Route::get('/invoiceItems/{id}','InvoiceItemListController@viewItems');
 Route::get('/createInvoice','InvoiceController@create_invoiceList');
 Route::get('/requestItemList/{id}','RequestProductController@requestItemStore');
@@ -41,7 +45,7 @@ Route::get('/viewReports/inventoryUsage','ReportsController@generate_Inventory_U
 Route::post('/viewReports/totalCostUsage','ReportsController@view_TotalUsageCost');
 
 
-
+Route::post('/storeUnits','UnitCategoryController@save');
 Route::post('/viewReports/createTransactionAreaReport','ReportsController@post_TransactionInventoryOfArea');
 Route::post('/viewReports/createTransactionReport','ReportsController@post_TransactionInventoryOfEmployee');
 Route::post('/newInventoryProduct','InventoryController@save_newProduct');

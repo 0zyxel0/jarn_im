@@ -66,15 +66,23 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Category Name</th>
+                                <th>Created By</th>
                                 <th>Option</th>
 
                             </tr>
 
                             </thead>
                             <tbody>
-
-
-
+                                @foreach($units as $u)
+                                    <tr>
+                                        <td>{{$u['unitid']}}</td>
+                                        <td>{{$u['unit_type']}}</td>
+                                        <td>{{$u['updatedBy']}}</td>
+                                        <th> <button id="btn_view"><i class="fa fa-book"></i>View</button>
+                                            <button id="btn_edit"><i class="fa fa-book"></i>Edit</button>
+                                            <button id="btn_delete"><i class="fa fa-book"></i>Delete</button></th>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
 
@@ -91,7 +99,7 @@
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form method="post" action="storeCategory">
+            <form method="post" action="storeUnits">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

@@ -17,7 +17,7 @@
 
                     ],
                 "createdRow": function( row, data, dataIndex ) {
-                    if ( data[2] <= data[4] ) {
+                    if ( data[2] < data[4] ) {
 
                         $(row).addClass('red');
 
@@ -27,8 +27,11 @@
 
             $('#list tbody').on( 'click', '.btn_view', function () {
 
-             alert('asdf');
-                //window.location.href='/jarn_em/public/attendance/'+data[0]+'/'+data[1];
+                var data = table.row( $(this).parents('tr') ).data();
+
+               window.location.href='inventoryList/editProduct/'+data[0];
+
+
             });
 
             $('.flash-message').fadeIn('fast').delay(1000).fadeOut('fast');
@@ -93,7 +96,7 @@
                                     <td>  {{$item['alert_value']}} </td>
                                     <td>   {{$item['description']}}</td>
                                     <td>   {{$item['updated_at']}}</td>
-                                    <td> <button id="btn_view"><i class="fa fa-book"></i>View</button></td>
+                                    <td> <button class="btn_view"><i class="fa fa-book"></i>View</button></td>
 
                                 </tr>
                             @endforeach

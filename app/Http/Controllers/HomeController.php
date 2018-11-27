@@ -37,7 +37,7 @@ class HomeController extends Controller
     public function showDashboard(){
 
         $newItems = Inventory::all();
-        $requestList = RequestList::select('listid as itemsList','tracking_no','status')->get();
+        $requestList = RequestList::select('request_productid as itemsList','tracking_no','status')->orderBy('status','asc')->get();
         $alertItems = Inventory::whereRaw('quantity <= alert_value')->get();
         return view('content.dashboard',compact('newItems','requestList','alertItems'));
     }

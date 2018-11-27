@@ -50,7 +50,7 @@
                                 <table id="list" class="table no-margin">
                                     <thead>
                                     <tr>
-                                        <th>InventoryId</th>
+                                        <!--th>InventoryId</th-->
                                         <th>Name</th>
                                         <th>On Stock</th>
 
@@ -60,7 +60,7 @@
                                     <tbody>
                                     @foreach($newItems as $item)
                                         <tr>
-                                            <td>   {{$item['product_id']}}</td>
+                                            <!--td>   {{$item['product_id']}}</td-->
                                             <td>   {{$item['name']}}</td>
                                             <td>   {{$item['quantity']}}</td>
 
@@ -96,10 +96,10 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body no-padding">
-                                <table id="list" class=" table no-margin">
+                                <table id="list2" class=" table no-margin">
                                     <thead>
                                     <tr>
-                                        <th>product_id</th>
+                                        <!--th>product_id</th-->
                                         <th>Item Name</th>
                                         <th>Qty Left</th>
 
@@ -109,7 +109,7 @@
                                     <tbody>
                                     @foreach($alertItems as $a)
                                         <tr>
-                                            <td>  {{$a['product_id']}}</td>
+                                            <!--td>  {{$a['product_id']}}</td-->
                                             <td>   {{$a['name']}}</td>
                                             <td>   {{$a['quantity']}}</td>
                                         </tr>
@@ -154,7 +154,7 @@
                                 <tbody>
                                 @foreach($requestList as $reqs)
                                     <tr>
-                                        <td>   <a href="/{{$reqs['itemsList']}}">{{$reqs['itemsList']}}</a></td>
+                                        <td>   <a href="/jarn_im/public/requestItemList/{{$reqs['itemsList']}}">{{$reqs['itemsList']}}</a></td>
                                         <td>   {{$reqs['tracking_no']}}</td>
                                         <td>{{$reqs['status']}}  </td>
 

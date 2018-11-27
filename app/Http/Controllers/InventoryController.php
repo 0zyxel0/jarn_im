@@ -8,6 +8,7 @@ use App\RequestList;
 use App\Inventory_transaction_log;
 use App\RequestProduct;
 use App\Supplier;
+use App\UnitCategory;
 use App\User;
 use Illuminate\Http\Request;
 use Faker\Provider\Uuid;
@@ -104,6 +105,22 @@ class InventoryController extends Controller
         $cat = Category::all();
 
         return view('content.inventory.create_inventory_item', compact('sup','cat'));
+    }
+
+    public function edit_inventoryProduct($prodid){
+
+        $item = Inventory::where('product_id',$prodid)->get();
+
+        $saved_sup = Inventory::where('product_id',$prodid)->join('suppliers', function($join){
+            $join->on('suppliers.id','=','inventories.supplier_id');
+        })->get();
+        $saved_cat = Inventory::where('product_id',$prodid)->join('categories', function($join){
+            $join->on('categories.category_id','=','inventories.category');
+        })->get();
+        $sup = Supplier::all();
+        $cat = Category::all();
+        $units = UnitCategory::all();
+        return view('content.inventory.edit_inventory_item',compact('item','sup','cat','saved_sup','saved_cat','units'));
     }
 
     public function save_newProduct(Request $request){
