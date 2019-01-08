@@ -29,7 +29,7 @@ Route::get('/requestList','RequestProductController@show_requestList');
 Route::get('/invoiceList','InvoiceController@show');
 Route::get('/addNewProduct','InventoryController@add_inventoryProduct');
 Route::get('/inventoryList/editProduct/{prodid}','InventoryController@edit_inventoryProduct');
-
+Route::get('/viewReports/OnAlert','ReportsController@generate_Inventory_OnAlert');
 
 
 Route::get('/invoiceItems/{id}','InvoiceItemListController@viewItems');
@@ -40,10 +40,12 @@ Route::get('/viewReports/transactionsOfEmployeeArea','ReportsController@view_Tra
 Route::get('/viewReports/transactionsOfEmployeeArea/generatePersonReport','ReportsController@generatePersonTransactionReport');
 Route::get('/viewReports/totalInventory','ReportsController@view_TotalInventoryCost');
 Route::get('/viewReports/transactionsOfArea','ReportsController@view_TransactionInventoryOfArea');
-
+Route::get('/viewReports/ViewItemsReport','ReportsController@view_TotalInventoryItemsAvailable');
 Route::get('/viewReports/inventoryUsage','ReportsController@generate_Inventory_UsageReport');
 Route::post('/viewReports/totalCostUsage','ReportsController@view_TotalUsageCost');
 
+
+Route::post('/inventoryList/editProduct/updateItem','InventoryController@updateItem');
 
 Route::post('/storeUnits','UnitCategoryController@save');
 Route::post('/viewReports/createTransactionAreaReport','ReportsController@post_TransactionInventoryOfArea');

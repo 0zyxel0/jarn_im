@@ -47,6 +47,7 @@ class InvoiceController extends Controller
         $invoice_items = new InvoiceItemList();
         $inventory = new Inventory();
         $or_number = $request->get('or_number');
+        $invoice_types = $request->get('invoice_typeid');
         $invoice_date = $request->get('invoice_date');
         $supplier_name = $request->get('supplier_name');
         $itemName = $request->get('itemName');
@@ -68,6 +69,7 @@ class InvoiceController extends Controller
                 ,'or_number'=>$or_number
                 ,'invoice_date'=>$invoice_date
                 ,'supplier_id'=>$supplier_name
+                ,'invoice_typeid'=>$invoice_types
                 ,'invoice_total'=>$invoice_total
                 ,'username'=>$username
                 ,'created_at' => date('Y-m-d H:i:s')
@@ -88,7 +90,7 @@ class InvoiceController extends Controller
                 ,'updated_at' => date('Y-m-d H:i:s')
             ];
         }
-
+dd($dataset);
         $invoice_list->insert($dataset);
         $invoice_items->insert($dataset2);
 
@@ -153,8 +155,9 @@ class InvoiceController extends Controller
     public function create_invoiceList(){
         $cat = Category::all();
 
+        $invType = InvoiceCategory::all();
         $suppliers = Supplier::all();
-        return view('content.invoice.create_invoice',compact('suppliers','cat'));
+        return view('content.invoice.create_invoice',compact('suppliers','cat','invType'));
     }
 
     public function show_invoiceTypes(){

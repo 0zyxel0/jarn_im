@@ -18,6 +18,7 @@ class CreateInvoicesTable extends Migration
             $table->string('or_number');
             $table->string('invoice_date');
             $table->string('supplier_id');
+            $table->string('invoice_typeid');
             $table->float('invoice_total');
             $table->string('username');
             $table->timestamps();

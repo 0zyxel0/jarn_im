@@ -18,6 +18,7 @@ class Invoice extends Model
         ,'category'
         ,'total_price'
         ,'username'
+        ,'invoice_typeid'
         ,'created_at'
         ,'updated_at'
     ];

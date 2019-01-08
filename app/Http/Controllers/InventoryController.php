@@ -75,9 +75,40 @@ class InventoryController extends Controller
      * @param  \App\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventory $inventory)
+    public function updateItem(Request $request)
     {
-        //
+        $invent = new Inventory();
+        $inventHistory = new Inventory_transaction_log();
+        $returnid = $request->product_id;
+
+
+        Inventory::where('product_id',$request->product_id)
+            ->update([
+                'name'=>$request->product_name
+                ,'quantity'=>$request->quantity
+                ,'supplier_id'=>$request->supplier_name
+                ,'category'=>$request->category_name
+                ,'unit'=>$request->unit
+                ,'price'=>$request->price
+                ,'description'=>$request->description
+                ,'alert_value'=>$request->alerts
+                ,'created_by'=>$request->username
+            ]);
+
+        $inventHistory->product_id = $request->product_id;
+        $inventHistory->name = $request->product_name;
+        $inventHistory->quantity = $request->quantity;
+        $inventHistory->supplier_id = $request->supplier_name;
+        $inventHistory->category = $request->category_name;
+        $inventHistory->unit = $request->unit;
+        $inventHistory->price = $request->price;
+        $inventHistory->description = $request->description;
+        $inventHistory->alert_value = $request->alerts;
+        $inventHistory->process = 'Updated Product';
+        $inventHistory->created_by = $request->username;
+        $inventHistory->save();
+
+        return redirect('/inventoryList/editProduct/'.$returnid);
     }
 
     /**

@@ -35,7 +35,7 @@
 
     </div>
     <section class="content-header">
-        <button class="btn btn-block btn-default" onclick="location.href='dashboard'; return false;" type="button" style="width: 150px;"> &lt; Back to Dashboard</button>
+        <button class="btn btn-block btn-default" onclick="location.href='/jarn_im/public/inventoryList'; return false;" type="button" style="width: 150px;"> &lt; Back to Dashboard</button>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Inventory</a></li>
@@ -56,7 +56,7 @@
 
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form action="newInventoryProduct" method="post">
+                        <form action="updateItem" method="post">
                         <div class="row">
                             <div class="form-group col-xs-12">
                                 <div class="form-group ">

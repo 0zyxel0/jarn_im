@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App;
 use DB;
 
+
 class ReportsController extends Controller
 {
     public function viewAvaiblableReports(){
@@ -78,7 +79,11 @@ return view('content.reports.view_report_generatedReportEmployeeTransaction',['d
 
         return view('content.reports.view_report_generatedReportInventoryTotalCost',compact('data'));
     }
+    public function view_TotalInventoryItemsAvailable(){
+        $data = App\Inventory::where('quantity','<>','0')->get();
 
+        return view('content.reports.view_report_generatedReportInventoryItems',compact('data'));
+    }
 
     public function view_TotalUsageCost(Request $request){
 
@@ -101,6 +106,18 @@ return view('content.reports.view_report_generatedReportEmployeeTransaction',['d
         return view('content.reports.view_report_generatedReportUsageCost',['data'=>json_decode($query_json, true)]);
     }
 
+
+    public function generate_Inventory_OnAlert(){
+
+        $data = DB::select('
+            SELECT * 
+            FROM inventories i 
+            LEFT JOIN suppliers s on i.supplier_id = s.id 
+            WHERE quantity < alert_value
+        ');
+        $query_json = json_encode($data);
+        return view('content.reports.view_report_generatedReportInventoryOnAlert',['data'=>json_decode($query_json, true)]);
+    }
 
     public function generate_Inventory_UsageReport(){
         return view('content.reports.view_report_inventory_transaction_usage');

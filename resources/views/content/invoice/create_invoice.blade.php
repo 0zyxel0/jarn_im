@@ -170,8 +170,8 @@
                         </div>
                         <div class="form-group">
                             <label>Supplier</label>
-                            <select class="form-control" id="supplier_name" name="supplier_name">
-                                <option>Supplier Name</option>
+                            <select class="form-control" id="supplier_name" name="supplier_name" required>
+                                <option selected="true" disabled="disabled">Supplier Name</option>
                                 @foreach($suppliers as $s)
                                 <option value="{{$s['id']}}">{{$s['company_name']}}</option>
                                 @endforeach
@@ -181,8 +181,11 @@
                         </div>
                         <div class="form-group">
                             <label>Receipt Category</label>
-                            <select class="form-control" id="supplier_name" name="supplier_name">
-                                <option>Category</option>
+                            <select class="form-control" id="invoice_typeid" name="invoice_typeid" required>
+                                <option selected="true" disabled="disabled">Receipt Type</option>
+                                @foreach($invType as $s)
+                                    <option value="{{$s['id']}}">{{$s['invoice_type']}}</option>
+                                @endforeach
                             </select>
 
                         </div>
@@ -223,7 +226,7 @@
                                     Total Amount
 
                                 </td>
-                                <td><input type="text" class="form-control pull-right" id="invoice_total" name="invoice_total"></td>
+                                <td><input type="text" class="form-control pull-right" id="invoice_total" name="invoice_total" required></td>
                                 <td><button type="submit" class="pull-right btn btn-primary">Save</button></td>
 
                             </tr>

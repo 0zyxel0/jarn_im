@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.reports')
 @section('content')
     <script src="{{asset('js/datatables.js')}}"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" />
@@ -13,14 +13,41 @@
 
 
 
+    <script>
+        $(document).ready(function(){
+            var table =  $('#list').DataTable({
+                "dom": 'lBfrtiBp',
+                "bLengthChange": false,
+                "bFilter": false,
+                "bInfo": false,
+                "bAutoWidth": false,
+                'buttons': ['copy', 'excel', 'csv', 'pdf', 'print' ],
+                "columnDefs":
+                    [
+                        {
 
+                            "targets":[],
+                            "data":null,
+                            "render": function(full)
+                            {
+
+
+
+                            }
+
+                        },
+                    ],
+            });
+
+        });
+    </script>
 
     <section class="content-header">
-        <button class="btn btn-block btn-default" onclick="location.href='dashboard'; return false;" type="button" style="width: 150px;"> &lt; Back to Dashboard</button>
+        <button class="btn btn-block btn-default" onclick="location.href='/jarn_im/public/viewReports'; return false;" type="button" style="width: 150px;"> &lt; Back to Report</button>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Inventory</a></li>
-            <li class="active">View Inventory List</li>
+            <li class="active">View Inventory On Alert List</li>
         </ol>
 
     </section>
@@ -35,30 +62,27 @@
                     <div class="box-body">
                         <table id="list" class="table table-bordered table-striped dataTable">
                             <thead>
-                            <tr>
-                                <th>Report Name</th>
-                            </tr>
+                            <th>Product ID</th>
+                            <th>Item Name</th>
+                            <th>Quantity Left</th>
+                            <th>Alert Value</th>
+                            <th>Supplier</th>
 
                             </thead>
                             <tbody>
-                            <tr>
-                            <td><a href="viewReports/transactionsOfEmployeeArea"> Requests by Employee</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="viewReports/transactionsOfArea"> Requests by Area</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="viewReports/totalInventory"> Total Inventory Cost</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="viewReports/inventoryUsage"> Total Inventory Usage</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="viewReports/OnAlert"> Inventory on Alert</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="viewReports/ViewItemsReport">Available Inventory</a></td>
-                            </tr>
+@foreach($data as $a)
+    <tr>
+    <td>{{$a['product_id']}}</td>
+    <td>{{$a['name']}}</td>
+    <td>{{$a['quantity']}}</td>
+    <td>{{$a['alert_value']}}</td>
+
+    <td>{{$a['company_name']}}</td>
+
+    </tr>
+    @endforeach
+
+
                             </tbody>
                         </table>
 

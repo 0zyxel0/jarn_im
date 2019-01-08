@@ -16,12 +16,22 @@
                         }
 
                     ],
-                "createdRow": function( row, data, dataIndex ) {
-                    if ( data[2] < data[4] ) {
 
-                        $(row).addClass('red');
 
-                    }},
+
+                "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+                    if (  parseInt(aData[4]) >= parseInt(aData[2]) )
+                    {
+
+                        $('td', nRow).css('background-color', 'Red');
+                    }
+                    else if ( parseInt(aData[2]) == parseInt(aData[4]) )
+                    {
+                        $('td', nRow).css('background-color', 'Orange');
+                    }
+                }
+
+
 
             });
 

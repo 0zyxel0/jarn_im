@@ -43,7 +43,7 @@
     </script>
 
     <section class="content-header">
-        <button class="btn btn-block btn-default" onclick="location.href='/jarn_im/public/viewReports/transactionsOfEmployeeArea'; return false;" type="button" style="width: 150px;"> &lt; Back to Report</button>
+        <button class="btn btn-block btn-default" onclick="location.href='/jarn_im/public/viewReports'; return false;" type="button" style="width: 150px;"> &lt; Back to Report</button>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Inventory</a></li>
