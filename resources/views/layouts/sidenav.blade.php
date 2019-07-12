@@ -22,7 +22,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
-                <a href="/jarn_im/public/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                <a href="{{url('dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
             </li>
             <li class="treeview">
                 <a href="#">
@@ -32,8 +32,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/jarn_im/public/inventoryList"><i class="fa fa-circle-o"></i>Inventory List</a></li>
-                    <li><a href="/jarn_im/public/requestList"><i class="fa fa-circle-o"></i>Request Materials List</a></li>
+                    <li><a href="{{url('inventoryList')}}"><i class="fa fa-circle-o"></i>Inventory List</a></li>
+                    <li><a href="{{url('requestList')}}"><i class="fa fa-circle-o"></i>Request Materials List</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -44,9 +44,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/jarn_im/public/supplierList"><i class="fa fa-circle-o"></i>Suppliers</a></li>
-                    <li><a href="/jarn_im/public/personList"><i class="fa fa-circle-o"></i>Employee</a></li>
-                    <li><a href="/jarn_im/public/areaList"><i class="fa fa-circle-o"></i>Area</a></li>
+                    <li><a href="{{url('supplierList')}}"><i class="fa fa-circle-o"></i>Suppliers</a></li>
+                    <li><a href="{{url('personList')}}"><i class="fa fa-circle-o"></i>Employee</a></li>
+                    <li><a href="{{url('areaList')}}"><i class="fa fa-circle-o"></i>Area</a></li>
 
                 </ul>
             </li>
@@ -59,8 +59,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/jarn_im/public/unitList"><i class="fa fa-circle-o"></i> View Units</a></li>
-                    <li><a href="/jarn_im/public/categoryList"><i class="fa fa-circle-o"></i> View Categories</a></li>
+                    <li><a href="{{url('unitList')}}"><i class="fa fa-circle-o"></i> View Units</a></li>
+                    <li><a href="{{url('categoryList')}}"><i class="fa fa-circle-o"></i> View Categories</a></li>
                 </ul>
             </li>
 
@@ -72,9 +72,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/jarn_im/public/createInvoice"><i class="fa fa-circle-o"></i>Create Invoice</a></li>
-                    <li><a href="/jarn_im/public/invoiceList"><i class="fa fa-circle-o"></i>Invoice List</a></li>
-                    <li><a href="/jarn_im/public/invoiceTypeList"><i class="fa fa-circle-o"></i>Invoice Category</a></li>
+                    <li><a href="{{url('createInvoice')}}"><i class="fa fa-circle-o"></i>Create Invoice</a></li>
+                    <li><a href="{{url('invoiceList')}}"><i class="fa fa-circle-o"></i>Invoice List</a></li>
+                    <li><a href="{{url('invoiceTypeList')}}"><i class="fa fa-circle-o"></i>Invoice Category</a></li>
 
 
                 </ul>
@@ -85,7 +85,7 @@
 
 
 
-            <li><a href="/jarn_im/public/viewReports"><i class="fa fa-pie-chart"></i> <span>Reports</span></a></li>
+            <li><a href="{{url('viewReports')}}"><i class="fa fa-pie-chart"></i> <span>Reports</span></a></li>
 
 
         </ul>
